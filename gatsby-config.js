@@ -1,7 +1,8 @@
 module.exports = {
-  pathPrefix: `/Anime-Weeaboo`,
+  pathPrefix: `/anime-weeaboo`,
   siteMetadata: {
     title: 'Anime Weeaboo',
+    subtitle: `Anime`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -28,7 +29,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
   ],
 }

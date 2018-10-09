@@ -5,7 +5,8 @@ import Img from "gatsby-image"
 class PostTemplate extends Component {
     render() {
         const post = this.props.data.wordpressPost
-        const resolutions = (post.featured_media) ? post.featured_media.localFile.childImageSharp.resolutions : null
+        const posts = this.props.data.allWordpressPost.edges.node
+        const resolutions = (posts.featured_media) ? posts.featured_media.localFile.childImageSharp.resolutions : null
 
 
         console.log(resolutions)
@@ -66,20 +67,27 @@ export const pageQuery = graphql`
                 facebook
                 twitter
             }
-            featured_media{
-                localFile{
-                    childImageSharp{
-                        resolutions(height: 200){
-                            src
-                            height
+            
+        }
+        allWordpressPost{
+             edges{
+                node{
+                    featured_media{
+                    localFile{
+                        childImageSharp{
+                            fluid{
+                                src
+                            }
                         }
                     }
+                    }
                 }
-            }
+             }
         }
         site {
             siteMetadata {
                 title
+                subtitle
             }
         }
     }
